@@ -2,7 +2,6 @@ import { createStore } from 'vuex'
 import network from './network'
 
 const state = {
-  count: 1,
   localJSONIsLoading: false,
   localJSON: null,
   localJSONErrorMessage: ''
@@ -15,9 +14,6 @@ const getters = {
 }
 
 const mutations = {
-  increment(state) {
-    state.count++
-  },
   setLocalJSONIsLoading(state, value) {
     state.localJSONIsLoading = value
   },
