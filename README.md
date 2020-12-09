@@ -7,4 +7,6 @@ Lots of environmental issues.
 - Balance between speed and quality, could do with refactoring, but for a test to demonstrate that I am capable, this should suffice.
 - Tested on Windows 10 pc, Chrome, Firefox, Edge. 
 
-To run this, do the 'npm install' and when that completes, 'npm run serve'
+To run this, in a Powershell or command window, do the 'npm install' and when that completes, 'npm run serve'
+
+Then point your browser to http://localhost:8080/
