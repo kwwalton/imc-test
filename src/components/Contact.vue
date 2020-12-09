@@ -25,10 +25,6 @@ export default {
     isProductDetails: Boolean
   },
 
-  data() {
-    return {}
-  },
-
   computed: {
     fullName() {
       return `${this.salesRep.FirstName} ${this.salesRep.LastName}`
@@ -76,7 +72,6 @@ export default {
     }
   },
 
-  methods: {}
 }
 </script>
 

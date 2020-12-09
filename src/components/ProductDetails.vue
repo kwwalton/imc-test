@@ -31,9 +31,9 @@
         <ul>
           <li><strong>Item ID:</strong>{{ item.ItemID }}</li>
           <li><strong>Item Name:</strong>{{ item.ItemName }}</li>
-          <li><strong>Description:</strong>{{ item.Description }}</li>
+          <li v-if="item.Description"><strong>Description:</strong>{{ item.Description }}</li>
           <li><strong>Dimensions:</strong>{{ item.Dimensions }}</li>
-          <li><strong>Base Price:</strong>${{ item.BasePrice }}.00</li>
+          <li><strong>Base Price:</strong>{{ priceToCurrency}}</li>
         </ul>
 
         <Contact :salesRep="salesRep" :isProductDetails="true" />
@@ -45,27 +45,12 @@
 </template>
 
 <script>
-import { computed } from 'vue'
-import { useStore, mapGetters } from 'vuex'
+import { mapGetters } from 'vuex'
 
 import Contact from './Contact'
 
 export default {
-  setup() {
-    const store = useStore()
-
-    const count = computed(() => store.state.count)
-    return { count }
-  },
-
   name: 'ProductDetails',
-
-  data() {
-    return {
-      hateThis: true,
-      temp: {}
-    }
-  },
 
   components: {
     Contact
@@ -150,6 +135,10 @@ export default {
       }
       let nextIndex = currentIndex + 1
       return items[nextIndex].ProductID
+    },
+
+    priceToCurrency() {
+      return '$' + this.item.BasePrice.toFixed(2)
     }
   },
 
@@ -173,6 +162,8 @@ export default {
 
   mounted() {
     window.scrollTo(0, 0)
+    // Repaint the DOM, to clear out extra space from previous route
+    // TODO: find a more elegant solutions
     document.querySelector('#app').style.height = 'fit-content'
   }
 }

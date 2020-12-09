@@ -19,8 +19,6 @@ export default {
       store.dispatch('loadLocalJSON')
     }
 
-    //const localJSONIsLoading = () => store.state.localJSONIsLoading
-
     return { loadLocalJSON }
   },
 

@@ -19,7 +19,6 @@
           </router-link>
         </li>
       </ul>
-
     </div>
 
     <div v-else>Loading...</div>
@@ -27,29 +26,13 @@
 </template>
 
 <script>
-import { computed } from 'vue'
-import { useStore } from 'vuex'
 
 import ProductTile from './ProductTile'
 import Contact from './Contact'
 
 export default {
-  setup() {
-    const store = useStore()
-
-    const count = computed(() => store.state.count)
-    return { count }
-  },
-
   name: 'Products',
-
-  data() {
-    return {
-      hateThis: true,
-      productId: 1234
-    }
-  },
-
+  
   components: {
     ProductTile,
     Contact
@@ -73,7 +56,6 @@ export default {
     }
   },
 
-  methods: {}
 }
 </script>
 
